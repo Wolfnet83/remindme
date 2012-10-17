@@ -1,4 +1,6 @@
 Remindme::Application.routes.draw do
+  get "calendar/index"
+
   devise_for :users
 
   get "welcome/index"

@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Remindme</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container">
-   <div class="row">
-    <%= render 'devise/menu/registration_items'%>
-    <%= render 'devise/menu/login_items'%>
-    <%= yield %>
-   </div>
-  </div>
+  <head>
+    <title>Remindme</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="navbar-inner">
+          <a class="brand" href='#'>RemindMe</a>
+          <ul class="nav">
+            <%= render 'layouts/nav_menu'%>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="span10">
+          <%= yield %>
+        </div>
+        <div class="span2">
+          <%= render 'devise/menu/login_items'%>
+          <%= render 'devise/menu/registration_items'%>
+        </div>
+      </div>
+    </div>
+
+  </body>
 </html>
