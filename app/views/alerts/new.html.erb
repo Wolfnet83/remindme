@@ -1,0 +1,11 @@
+﻿<%= form_for :alert, :url => { :action => :create } do |f| %>
+  <p>
+  <%= f.label :event %>
+  <%= f.text_field :event %>
+  </p>
+  <p>
+  <%= f.label :event_description %>
+  <%= f.text_field :event_description %>
+  </p>
+  <%= f.submit %>
+<% end %>

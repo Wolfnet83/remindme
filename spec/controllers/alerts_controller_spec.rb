@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CalendarController do
+describe AlertsController do
 
   describe "GET 'index'" do
     it "returns http success" do

@@ -1,5 +1,10 @@
 Remindme::Application.routes.draw do
-  get "calendar/index"
+
+#  get "alerts/index"
+#  get "alerts/new"
+#  post "alerts/create"
+
+  resources :alerts
 
   devise_for :users
 
