@@ -5,7 +5,7 @@ class CreateAlerts < ActiveRecord::Migration
       t.text :event_description
       t.integer :user_id
       t.integer :period
-      t.date :execution_time
+      t.date :start_time
       t.date :last_executed
       t.boolean :active
 

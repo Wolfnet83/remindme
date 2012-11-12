@@ -39,6 +39,7 @@ gem 'twitter-bootstrap-rails'
 
 gem 'devise'
 gem 'devise-i18n'
+gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

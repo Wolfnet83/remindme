@@ -1,3 +1,17 @@
 <h1>Alerts#index</h1>
 <p>Find me in app/views/alerts/index.html.erb</p>
+<table class='table'>
+  <tbody>
+    <% @alerts.each do |alert| %>
+      <tr>
+        <td><%= alert.id %></td>
+        <td><%= alert.event %></td>
+        <td><%= alert.event_description %></td>
+        <td><%= alert.period %></td>
+        <td><%= alert.user_id %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Add', new_alert_path %>

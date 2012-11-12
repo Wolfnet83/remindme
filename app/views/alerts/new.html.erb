@@ -1,11 +1,7 @@
-﻿<%= form_for :alert, :url => { :action => :create } do |f| %>
-  <p>
-  <%= f.label :event %>
-  <%= f.text_field :event %>
-  </p>
-  <p>
-  <%= f.label :event_description %>
-  <%= f.text_field :event_description %>
-  </p>
-  <%= f.submit %>
+﻿<%= simple_form_for :alert, :url => { :action => :create } do |f| %>
+  <%= f.input :event, :label => 'sder',:hint => 'Name of event' %>
+  <%= f.input :event_description, :as => 'text' %>
+  <%= f.input :period %>
+  <%= f.input :start_time, :as => :date, :order => [ :day, :month, :year] %>
+  <%= f.button :submit %>
 <% end %>
