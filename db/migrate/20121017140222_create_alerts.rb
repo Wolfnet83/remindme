@@ -7,7 +7,7 @@ class CreateAlerts < ActiveRecord::Migration
       t.integer :period
       t.date :start_time
       t.date :last_executed
-      t.boolean :active
+      t.boolean :active, default: true
 
       t.timestamps
     end
