@@ -6,6 +6,7 @@ Remindme::Application.routes.draw do
 
   resources :alerts
 
+  get "alerts/run_it_on"
   devise_for :users
 
   get "welcome/index"

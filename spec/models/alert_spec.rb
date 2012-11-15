@@ -9,7 +9,7 @@
 #  period            :integer
 #  start_time        :date
 #  last_executed     :date
-#  active            :boolean
+#  active            :boolean          default(TRUE)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  next_exec         :date
