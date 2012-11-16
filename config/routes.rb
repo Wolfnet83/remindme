@@ -4,9 +4,11 @@ Remindme::Application.routes.draw do
 #  get "alerts/new"
 #  post "alerts/create"
 
-  resources :alerts
+  resources :alerts 
 
-  get "alerts/run_it_on"
+  get "test_mail" => 'alerts#test_mail'
+  
+
   devise_for :users
 
   get "welcome/index"

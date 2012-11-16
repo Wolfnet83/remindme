@@ -42,4 +42,9 @@ class AlertsController < ApplicationController
 #    redirect_to alerts_path
   end
 
+  def test_mail
+    AlertMailer.alert_mail.deliver
+    redirect_to alerts_path
+  end
+
 end
