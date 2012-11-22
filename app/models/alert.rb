@@ -27,6 +27,7 @@ class Alert < ActiveRecord::Base
   def self.check_alert_dates
       @alerts = Alert.where("next_exec = ? and active = 't'", Time.now.strftime("%Y-%m-%d"))
       @alerts.each do |alert|
+        AlertMailer.alert_mail(alert.user.email).deliver
         alert_log = alert.alert_logs.new
         alert_log.executed_on = Time.now
         alert_log.save

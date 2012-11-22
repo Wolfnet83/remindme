@@ -6,9 +6,10 @@ class AlertMailer < ActionMailer::Base
   #
   #   en.alert_mailer.alert_mail.subject
   #
-  def alert_mail
+  def alert_mail(user)
     @greeting = "Hi"
 
-    mail to: "andrey.volcov@rusnac.md"
+  #  mail to: "andrey.volcov@rusnac.md"
+    mail to: user
   end
 end

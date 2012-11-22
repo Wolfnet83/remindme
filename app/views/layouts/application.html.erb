@@ -11,20 +11,25 @@
     <div class="container">
       <div class="navbar">
         <div class="navbar-inner">
-          <a class="brand" href='#'>RemindMe</a>
+          <a class="brand" href=<%= welcome_index_path %>>
+            RemindMe
+          </a>
           <ul class="nav">
             <%= render 'layouts/nav_menu'%>
           </ul>
+        <ul class="nav pull-right">
+          <%= render 'devise/menu/registration_items' %>
+          <%= render 'devise/menu/login_items'%>
+        </ul>
         </div>
       </div>
 
       <div class="row">
-        <div class="span10">
+        <div class="span9">
           <%= yield %>
         </div>
-        <div class="span2">
-          <%= render 'devise/menu/login_items'%>
-          <%= render 'devise/menu/registration_items'%>
+        <div class="span3">
+          <%= yield :side %>
         </div>
       </div>
     </div>
