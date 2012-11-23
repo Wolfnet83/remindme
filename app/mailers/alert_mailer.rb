@@ -1,15 +1,14 @@
 class AlertMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "remindme@example.org", subject: "Alert from RemindMe Team"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
   #   en.alert_mailer.alert_mail.subject
   #
-  def alert_mail(user)
+  def alert_mail(alert)
     @greeting = "Hi"
-
-  #  mail to: "andrey.volcov@rusnac.md"
-    mail to: user
+    @alert = alert
+    mail to: alert.user.email
   end
 end

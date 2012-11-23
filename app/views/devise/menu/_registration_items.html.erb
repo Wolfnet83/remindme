@@ -2,4 +2,8 @@
   <li>
   <%= link_to('Изменить профиль', edit_user_registration_path) %>
   </li>
+<% else %>
+  <li>
+  <%= link_to('Зарегистрироваться', new_user_registration_path) %>
+  </li>
 <% end %>

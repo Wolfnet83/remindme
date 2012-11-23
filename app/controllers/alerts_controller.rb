@@ -38,7 +38,8 @@ class AlertsController < ApplicationController
   end
 
   def test_mail
-    Alert.check_alert_dates
+    @alert=Alert.find(params[:id])
+    AlertMailer.alert_mail(@alert).deliver
     redirect_to alerts_path
   end
 

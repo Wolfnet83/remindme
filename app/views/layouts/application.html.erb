@@ -18,8 +18,8 @@
             <%= render 'layouts/nav_menu'%>
           </ul>
         <ul class="nav pull-right">
-          <%= render 'devise/menu/registration_items' %>
-          <%= render 'devise/menu/login_items'%>
+          <%#= render 'devise/menu/registration_items' %>
+          <%#= render 'devise/menu/login_items'%>
         </ul>
         </div>
       </div>
@@ -29,7 +29,7 @@
           <%= yield %>
         </div>
         <div class="span3">
-          <%= yield :side %>
+          <%= render 'layouts/side_bar' %>
         </div>
       </div>
     </div>

@@ -4,10 +4,12 @@ Remindme::Application.routes.draw do
 #  get "alerts/new"
 #  post "alerts/create"
 
-  resources :alerts 
+#  match "test_mail/:id" => "alerts#test_mail"
+#  get "test_mail/:id" => "alerts#test_mail", :as => :test_mail
 
-  get "test_mail" => 'alerts#test_mail'
-  
+  resources :alerts do
+    get :test_mail, :on => :member
+  end
 
   devise_for :users
 

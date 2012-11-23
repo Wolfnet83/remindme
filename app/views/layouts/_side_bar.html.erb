@@ -1,19 +1,19 @@
-<% content_for :side do %>
-  <% if !user_signed_in? %>
-    <%= form_for("user", :url => user_session_path) do |f| %>
-      <div>
-        <%= f.email_field :email, :placeholder => "email" %></div>
-      <div>
-        <%= f.password_field :password, :placeholder => "password" %></div>
-      <div> 
-        <label class="checkbox">
-          <%= f.check_box :remember_me %>
-          <%= t "Remember me" %>
-        </label>
-      </div>
-      <div><%= f.submit "Sign in", :class => "btn btn-primary" %></div>
-    <% end %>
-  <% else %>
-    <h2>Hello,<%= current_user.email%>!</h2>
-    <% end %>
+<% if !user_signed_in? %>
+  <%= form_for("user", :url => user_session_path) do |f| %>
+    <div>
+      <%= f.email_field :email, :placeholder => "email" %></div>
+    <div>
+      <%= f.password_field :password, :placeholder => "password" %></div>
+    <div> 
+      <label class="checkbox">
+        <%= f.check_box :remember_me %>
+        <%= t "Remember me" %>
+      </label>
+    </div>
+    <div><%= f.submit "Sign in", :class => "btn btn-primary" %></div>
+  <% end %>
+  <%=link_to t("Register"), new_user_registration_path %>
+<% else %>
+  <%= render 'devise/menu/registration_items' %>
+  <%= render 'devise/menu/login_items'%>
 <% end %>
