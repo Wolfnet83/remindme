@@ -45,6 +45,8 @@ gem 'annotate', '>=2.5.0'
 gem 'whenever', :require => false
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-odnoklassniki'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
