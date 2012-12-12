@@ -26,6 +26,11 @@
 
       <div class="row">
         <div class="span9">
+          <div id="flash_errors" class="text-error">
+            <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+            <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+            <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+          </div>
           <%= yield %>
         </div>
         <div class="span3">

@@ -15,10 +15,15 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
 #
 
 class User < ActiveRecord::Base
-  has_many :alerts
+  has_many :alerts, dependent: :destroy
+  has_many :authentications, dependent: :destroy
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -26,18 +31,23 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  def self.find_for_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user
-      user = User.create(provider:auth.provider,
-                         uid:auth.uid,
-                         email:auth.info.email,
-                         password:Devise.friendly_token[0,20]
-                        )
+  def self.from_omniauth(auth, signed_in_resource=nil)
+    authentication = Authentication.where(:provider => auth.provider, :uid => auth.uid).first
+    if authentication.present?
+      user = authentication.user
+    else
+      user = self.find_or_create_by_email(auth.info.email)
+      user.authentications.build provider: auth.provider, uid: auth.uid.to_s
+    #  user.username = auth.info.nickname
+    #  user.firstname = auth.info.first_name
+    #  user.lastname = auth.info.last_name
+      user.email = auth.info.email
+    #  user.password = Devise.friendly_token[0,20]
     end
+
     user
   end
 end
