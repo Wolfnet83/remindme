@@ -34,20 +34,19 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  def self.from_omniauth(auth, signed_in_resource=nil)
+  def self.from_omniauth(auth)
     authentication = Authentication.where(:provider => auth.provider, :uid => auth.uid).first
     if authentication.present?
       user = authentication.user
     else
       user = self.find_or_create_by_email(auth.info.email)
       user.authentications.build provider: auth.provider, uid: auth.uid.to_s
-    #  user.username = auth.info.nickname
-    #  user.firstname = auth.info.first_name
-    #  user.lastname = auth.info.last_name
-      user.email = auth.info.email
-    #  user.password = Devise.friendly_token[0,20]
     end
 
     user
+  end
+
+  def password_required?
+    super && authentications.blank?
   end
 end
