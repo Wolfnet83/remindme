@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :omniauthable, :database_authenticatable, :registerable, :confirmable, 
+  devise :omniauthable, :database_authenticatable, :registerable, 
     :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
@@ -42,8 +42,19 @@ class User < ActiveRecord::Base
       user = self.find_or_create_by_email(auth.info.email)
       user.authentications.build provider: auth.provider, uid: auth.uid.to_s
     end
-
     user
+  end
+
+  def self.new_with_session(params, session)
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"], without_protection: true) do |user|
+        user.attributes = params
+        user.authentications.build session["devise.user_auth_attributes"].slice("provider", "uid")
+        user.valid?
+      end
+    else
+      super
+    end
   end
 
   def password_required?
