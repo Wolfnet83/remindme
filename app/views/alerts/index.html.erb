@@ -1,12 +1,10 @@
 <table class='table table-striped table-condensed'>
   <thead>
     <tr>
-      <td>Event_ID</td>
-      <td>Event</td>
-      <td>Period</td>
-      <td>User</td>
-      <td>Start_time</td>
-      <td>Next_exec</td>
+      <td><%= t('common.event') %></td>
+      <td><%= t('common.period') %></td>
+      <td><%= t('common.start_time') %></td>
+      <td><%= t('common.next_exec') %></td>
     </tr>
   </thead>
   <tbody>
@@ -17,14 +15,11 @@
           <tr>
         <% end %>
 
-        <td><%= alert.id %></td>
-        <td><%= alert.event %></td>
+        <td><%= link_to alert.event, edit_alert_path(alert) %></td>
         <td><%= alert.period %></td>
-        <td><%= alert.user.email %></td>
         <td><%= alert.start_time %></td>
         <td><%= alert.next_exec %></td>
-        <td><%= link_to "Test mailer", test_mail_alert_path(alert) %></td>
-        <td><%= link_to 'Update', edit_alert_path(alert) %></td>
+        <%#<td><%= link_to "Test mailer", test_mail_alert_path(alert) %></td>%>
         <td><%= link_to "Del", alert, confirm: 'Точно?', method: :delete%></td>
       </tr>
     <% end %>
