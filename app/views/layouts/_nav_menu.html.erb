@@ -1,5 +1,21 @@
 ﻿<% if user_signed_in? %>
   <li>
-  <%= link_to('Календарь',alerts_path)%>
+  <%= link_to(t('common.calendar'),alerts_path)%>
+  </li>
+  <li class="divider-vertical"></li>
+  <li>
+  <%= link_to(t('common.username'), edit_user_registration_path) %>
+  </li>
+  <li class="divider-vertical"></li>
+  <li>
+  <%= link_to(t('common.logout'), destroy_user_session_path, :method => :delete) %>
+  </li>
+<% elsif %>
+  <li>
+  <%= link_to(t('common.sign_in'), new_user_session_path) %>
+  </li>
+  <li class="divider-vertical"></li>
+  <li>
+  <%= link_to(t('common.register'), new_user_registration_path) %>
   </li>
 <% end %>

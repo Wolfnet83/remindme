@@ -7,11 +7,12 @@ Remindme::Application.routes.draw do
 #  match "test_mail/:id" => "alerts#test_mail"
 #  get "test_mail/:id" => "alerts#test_mail", :as => :test_mail
 
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   resources :alerts do
     get :test_mail, :on => :member
   end
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get "welcome/index"
 

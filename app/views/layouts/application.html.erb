@@ -9,33 +9,23 @@
 
   <body>
     <div class="container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <a class="brand" href=<%= welcome_index_path %>>
-            RemindMe
-          </a>
-          <ul class="nav">
-            <%= render 'layouts/nav_menu'%>
-          </ul>
-        <ul class="nav pull-right">
-          <%#= render 'devise/menu/registration_items' %>
-          <%#= render 'devise/menu/login_items'%>
-        </ul>
-        </div>
-      </div>
-
       <div class="row">
-        <div class="span9">
-          <div id="flash_errors" class="text-error">
-            <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
-            <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
-            <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+
+        <div class="navbar">
+          <div class="navbar-inner">
+            <a class="brand" href=<%= welcome_index_path %>>
+              RemindMe
+            </a>
+            <ul class="nav pull-right">
+              <%= render 'layouts/nav_menu'%>
+            </ul>
           </div>
-          <%= yield %>
         </div>
-        <div class="span3">
-          <%= render 'layouts/side_bar' %>
-        </div>
+
+        <%= content_tag(:div, flash[:error], :id => "flash_error", :class => "alert alert-error") if flash[:error] %>
+        <%= content_tag(:div, flash[:notice], :id => "flash_notice", :class => "alert alert-success") if flash[:notice] %>
+        <%= content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-error") if flash[:alert] %>
+        <%= yield %>
       </div>
     </div>
 

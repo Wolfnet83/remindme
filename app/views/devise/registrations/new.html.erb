@@ -1,18 +1,19 @@
-<h2>Sign up</h2>
+<h2><%= t('common.sign_up') %></h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label(:email, t('auth_forms.email')) %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+	<% if f.object.password_required? %>
+		<div><%= f.label(:password, t('auth_forms.password')) %>
+		<%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+		<div><%= f.label(:password_confirmation, t('auth_forms.password_confirmation')) %>
+		<%= f.password_field :password_confirmation %></div>
+	<% end %>
+	<div><%= f.submit t('common.sign_up') %></div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+
