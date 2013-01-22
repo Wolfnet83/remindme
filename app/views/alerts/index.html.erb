@@ -19,7 +19,7 @@
         <td><%= alert.period %></td>
         <td><%= alert.start_time %></td>
         <td><%= alert.next_exec %></td>
-        <%#<td><%= link_to "Test mailer", test_mail_alert_path(alert) %></td>%>
+        <td><%= link_to "Test mailer", test_mail_alert_path(alert) %> </td>
         <td><%= link_to "Del", alert, confirm: 'Точно?', method: :delete%></td>
       </tr>
     <% end %>

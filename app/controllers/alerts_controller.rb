@@ -30,7 +30,11 @@ class AlertsController < ApplicationController
   def update
     @alert=Alert.find(params[:id])
     @alert.update_attributes(params[:alert])
-    redirect_to alerts_path, notice: 'Updated'
+    if @alert.save
+      redirect_to alerts_path, notice: 'Updated'
+    elsif
+      render 'edit'
+    end
   end
 
   def show

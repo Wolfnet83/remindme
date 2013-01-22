@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
   # attr_accessible :title, :body
 
   def self.from_omniauth(auth)
@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
       user = authentication.user
     else
       user = self.find_or_create_by_email(auth.info.email)
+      user.username = auth.info.name
       user.authentications.build provider: auth.provider, uid: auth.uid.to_s
     end
     user
@@ -60,4 +61,13 @@ class User < ActiveRecord::Base
   def password_required?
     super && authentications.blank?
   end
+
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      update_attributes(params, *options)
+    else
+      super
+    end
+  end
+
 end

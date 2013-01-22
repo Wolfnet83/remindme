@@ -4,13 +4,13 @@
   </li>
   <li class="divider-vertical"></li>
   <li>
-  <%= link_to(t('common.username'), edit_user_registration_path) %>
+  <%= link_to(current_user.username, edit_user_registration_path) %>
   </li>
   <li class="divider-vertical"></li>
   <li>
   <%= link_to(t('common.logout'), destroy_user_session_path, :method => :delete) %>
   </li>
-<% elsif %>
+<% else %>
   <li>
   <%= link_to(t('common.sign_in'), new_user_session_path) %>
   </li>
