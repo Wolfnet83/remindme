@@ -335,6 +335,7 @@ ru:
     register: Регистрация
     sign_up: Регистрация
     forgot_password: Забыли пароль?
+    success: Успешно обновлено
   auth_forms:
     email: Почтовый адрес
     password: Пароль

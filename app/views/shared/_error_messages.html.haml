@@ -1,8 +1,9 @@
 - if @alert.errors.any?
-  %h2
-    = pluralize(@alert.errors.count, "error")
-    prohibited this user from being saved:
-  %p There were problems with the following fields:
-  %ul
-    - @alert.errors.full_messages.each do |msg|
-      %li= msg
+  -#%h2
+    -#= pluralize(@alert.errors.count, "error")
+    -#prohibited this user from being saved:
+  -#%p There were problems with the following fields:
+  -#%ul
+    -#- @alert.errors.full_messages.each do |msg|
+      -#%li= msg
+  =flash[:error] = "Some errors have occured"

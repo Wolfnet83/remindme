@@ -31,8 +31,8 @@ class AlertsController < ApplicationController
     @alert=Alert.find(params[:id])
     @alert.update_attributes(params[:alert])
     if @alert.save
-      redirect_to alerts_path, notice: 'Updated'
-    elsif
+      redirect_to alerts_path, notice: t('common.success')
+    else
       render 'edit'
     end
   end
