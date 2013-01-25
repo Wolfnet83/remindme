@@ -1,0 +1,6 @@
+- if user_signed_in?
+  %li
+    = link_to('Изменить профиль', edit_user_registration_path)
+- else
+  %li
+    = link_to('Зарегистрироваться', new_user_registration_path)

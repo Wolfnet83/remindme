@@ -1,0 +1,8 @@
+= simple_form_for @alert do |f|
+  = render 'shared/error_messages'
+  = f.input :event, :label => 'Название',:hint => 'Название напоминалки'
+  = f.input :event_description, :label => 'Описание', :input_html => {:rows => '3'} ,:required => false
+  = f.input :period, :label => 'Периодичность', :hint => 'Периодичность в днях'
+  = f.input :start_time,:label => 'Дата'
+  = f.input :active, :inline_label => 'Active'
+  = f.button :submit

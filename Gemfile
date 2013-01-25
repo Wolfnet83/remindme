@@ -21,6 +21,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'erb2haml'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.10.1'
   gem 'factory_girl_rails', '~> 3.2.0'

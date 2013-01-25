@@ -1,0 +1,13 @@
+%h2= t('common.sign_in')
+= form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => "form-horizontal") do |f|
+  %div
+    = f.email_field :email, :placeholder => t('auth_forms.email')
+  %div
+    = f.password_field :password, :placeholder => t('auth_forms.password')
+  - if devise_mapping.rememberable?
+    %div
+      %label.checkbox
+        = f.check_box :remember_me
+        = t('auth_forms.remember_me')
+  %div= f.submit t('common.sign_in'), :class => "btn btn-primary"
+= render "devise/shared/links"

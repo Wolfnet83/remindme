@@ -1,0 +1,24 @@
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %td= t('common.event')
+      %td= t('common.period')
+      %td= t('common.start_time')
+      %td= t('common.next_exec')
+  %tbody
+    - @alerts.each do |alert|
+      - if !alert.active
+        %tr.muted
+      - else
+        %tr
+      %td= link_to alert.event, edit_alert_path(alert)
+      %td= alert.period
+      %td= alert.start_time
+      %td= alert.next_exec
+      %td
+        = link_to "Test mailer", test_mail_alert_path(alert)
+      %td= link_to "Del", alert, confirm: 'Точно?', method: :delete
+= link_to 'Add', new_alert_path, :class => 'btn btn-primary'
+= link_to 'Check Dates', alerts_check_dates_path, :class => 'btn btn-primary'
+%br/
+%br/

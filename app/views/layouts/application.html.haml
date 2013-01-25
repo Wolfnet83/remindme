@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Remindme
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      .row
+        .navbar
+          .navbar-inner
+            <a class="brand" href=#{welcome_index_path}> RemindMe
+            %ul.nav.pull-right
+              = render "layouts/nav_menu"
+              %li &nbsp;
+        = content_tag(:div, flash[:error], :id => "flash_error", :class => "alert alert-error") if flash[:error]
+        = content_tag(:div, flash[:notice], :id => "flash_notice", :class => "alert alert-success") if flash[:notice]
+        = content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-error") if flash[:alert]
+        = yield
