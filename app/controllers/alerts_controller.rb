@@ -47,4 +47,9 @@ class AlertsController < ApplicationController
     redirect_to alerts_path
   end
 
+  def check_dates
+    Alert.check_alert_dates
+    redirect_to alerts_path
+  end
+
 end

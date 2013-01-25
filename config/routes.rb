@@ -9,6 +9,7 @@ Remindme::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
+  get "alerts/check_dates" 
   resources :alerts do
     get :test_mail, :on => :member
   end

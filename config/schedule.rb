@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 15.minutes do
+every 2.minutes do
   runner "Alert.check_alert_dates"
 end

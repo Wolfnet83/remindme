@@ -11,7 +11,7 @@
     <% @alerts.each do |alert| %>
       <% if !alert.active %>
           <tr class='muted'>
-        <% elsif %>
+          <% else %>
           <tr>
         <% end %>
 
@@ -27,5 +27,6 @@
 </table>
 
 <%= link_to 'Add', new_alert_path, :class => 'btn btn-primary' %>
+<%= link_to 'Check Dates', alerts_check_dates_path, :class => 'btn btn-primary' %>
 <br>
 <br>
