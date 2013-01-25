@@ -336,6 +336,11 @@ ru:
     sign_up: Регистрация
     forgot_password: Забыли пароль?
     success: Успешно обновлено
+    event: Событие
+    period: Период повтора
+    start_time: Дата начала
+    next_exec: Следующее выполнение
+    really: Вы уверены?
   auth_forms:
     email: Почтовый адрес
     password: Пароль
