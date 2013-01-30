@@ -21,7 +21,7 @@ Remindme::Application.configure do
   :address  => "smtp.gmail.com",
   :port     => 587,
   :user_name => 'test06925',
-  :password  => 'qazw4321',
+  :password  => 'qazw1234',
   :authentication => 'plain',
   :enable_starttls_auto => true }
 
