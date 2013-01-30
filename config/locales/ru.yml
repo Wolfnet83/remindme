@@ -346,9 +346,16 @@ ru:
     cancel_my_account: Удалить аккаунт
     back: Назад
     unhappy: Недовольны?
+    add: Добавить
+    delete: Удалить
   auth_forms:
     email: Почтовый адрес
     password: Пароль
     current_password: Текущий пароль
     password_confirmation: Подтверждение пароля
     remember_me: Запомнить меня
+  mail:
+    greeting: Добрый день
+    body: Хотим напомнить Вам о
+    next_exec: В следующий раз Вы получите это сообщение
+    goodbye: С уважением, 

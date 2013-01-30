@@ -16,9 +16,9 @@
       %td= alert.start_time
       %td= alert.next_exec
       %td
-        = link_to "Test mailer", test_mail_alert_path(alert)
-      %td= link_to "Del", alert, confirm: t('common.really'), method: :delete
+        -#= link_to "Test mailer", test_mail_alert_path(alert)
+      %td= link_to t('common.delete'),  alert, confirm: t('common.really'), method: :delete
 = link_to t('common.add'), new_alert_path, :class => 'btn btn-primary'
-= link_to 'Check Dates', alerts_check_dates_path, :class => 'btn btn-primary'
+-#= link_to 'Check Dates', alerts_check_dates_path, :class => 'btn btn-primary'
 %br/
 %br/

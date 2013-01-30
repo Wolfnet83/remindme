@@ -1,14 +1,12 @@
-= @greeting
+= t('mail.greeting')
 , #{@alert.user.email}
 %p
-  want to rememeber about your #{@alert.event}
+  = t('mail.body')
+  #{@alert.event}
   %br/
   = @alert.event_description
   %p
-    Next time when you'll receive message is
+    = t('mail.next_exec')
     \#{@alert.next_exec}
   %p
-    Best Regards,
-    %br/
-    Sincerelly yours,
-    RemindMe Team
+    = t('mail.goodbye')
