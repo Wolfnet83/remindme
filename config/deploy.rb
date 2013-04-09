@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+require 'whenever/capistrano'
 
 set :application, "remindme"
 set :repository, "git@github.com:Wolfnet83/remindme.git"
