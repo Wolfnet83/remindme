@@ -1,6 +1,6 @@
 class AlertsController < ApplicationController
   def index
-    @alerts = current_user.alerts.all
+    @alerts = current_user.alerts
   end
 
   def create
