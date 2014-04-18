@@ -2,6 +2,6 @@
   = f.input :event, :label => 'Название',:hint => 'Название напоминалки'
   = f.input :event_description, :label => 'Описание', :input_html => {:rows => '3'} ,:required => false
   = f.input :period, :label => 'Периодичность', :hint => 'Периодичность в днях'
-  = f.input :start_time
-  = f.input :active, :inline_label => 'Active'
+  = f.input :start_time, as: :string, :label => 'Начало'
+  = f.input :active, :inline_label => 'Active', :label => 'Активно?'
   = f.button :submit

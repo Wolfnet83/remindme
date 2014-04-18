@@ -6,15 +6,18 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    .navbar.navbar-default
+      .container
+        %button.navbar-toggle{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.navbar-brand{:href => welcome_index_path} Remindme 
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.pull-right
+            = render "layouts/nav_menu"
     .container
-      .row
-        .navbar
-          .navbar-inner
-            %a.brand{href: welcome_index_path} RemindMe
-            %ul.nav.pull-right
-              = render "layouts/nav_menu"
-              %li &nbsp;
-        = content_tag(:div, flash[:error], :id => "flash_error", :class => "alert alert-error") if flash[:error]
-        = content_tag(:div, flash[:notice], :id => "flash_notice", :class => "alert alert-success") if flash[:notice]
-        = content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-error") if flash[:alert]
-        = yield
+      = content_tag(:div, flash[:error], :id => "flash_error", :class => "alert alert-error") if flash[:error]
+      = content_tag(:div, flash[:notice], :id => "flash_notice", :class => "alert alert-success") if flash[:notice]
+      = content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-error") if flash[:alert]
+      = yield

@@ -5,8 +5,8 @@ class AlertsController < ApplicationController
 
   def create
     @alert=current_user.alerts.new(params[:alert])
-    @alert.next_exec = @alert.start_time + @alert.period
     if @alert.save
+      @alert.next_exec = @alert.start_time + @alert.period
       redirect_to alerts_path
     elsif
       render 'new'
