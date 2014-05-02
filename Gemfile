@@ -65,7 +65,7 @@ gem 'protected_attributes'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '~>2.0'
 
 # To use debugger
 # gem 'debugger'
