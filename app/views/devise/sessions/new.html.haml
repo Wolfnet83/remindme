@@ -1,13 +1,15 @@
-%h2= t('common.sign_in')
-= form_for(resource, :as => resource_name, :url => session_path(resource_name), :class => "form-horizontal") do |f|
-  %div
-    = f.email_field :email, :placeholder => t('auth_forms.email')
-  %div
-    = f.password_field :password, :placeholder => t('auth_forms.password')
-  - if devise_mapping.rememberable?
-    %div
-      %label.checkbox
-        = f.check_box :remember_me
-        = t('auth_forms.remember_me')
-  %div= f.submit t('common.sign_in'), :class => "btn btn-primary"
-= render "devise/shared/links"
+.col-md-3.col-md-offset-4
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    %h2= t('common.sign_in')
+    .form-group
+      .col-lg-12
+        = f.input_field :email, :placeholder => t('auth_forms.email')
+    .form-group
+      .col-lg-12
+        = f.input_field :password, :placeholder => t('auth_forms.password')
+    .form-group
+      .col-lg-12
+        - if devise_mapping.rememberable?
+          = f.input :remember_me, as: :boolean, label: false, inline_label: true
+    = f.button :submit, t('common.sign_in'), :class => "btn btn-primary btn-block"
+  = render "devise/shared/links"
